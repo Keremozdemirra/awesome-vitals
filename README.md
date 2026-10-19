@@ -86,10 +86,16 @@ Facts: 1 not checked. GitHub API answered 403 for 1 repository.
 
 ## Install
 
+It is not on PyPI; install it from GitHub, pinned to the `v0.1.0` tag (drop `@v0.1.0` for
+the newest commit on `main`):
+
 ```bash
-uvx awesome-vitals README.md
-pipx run awesome-vitals README.md
+uvx --from git+https://github.com/Keremozdemirra/awesome-vitals@v0.1.0 awesome-vitals README.md
+pipx install git+https://github.com/Keremozdemirra/awesome-vitals@v0.1.0    # then: awesome-vitals README.md
+pip install git+https://github.com/Keremozdemirra/awesome-vitals@v0.1.0
 ```
+
+From a checkout: `git clone https://github.com/Keremozdemirra/awesome-vitals && python3 awesome-vitals/awesome_vitals.py README.md`.
 
 Nothing installed, standard library only (Python 3.9 or later):
 
