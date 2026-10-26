@@ -123,7 +123,7 @@ A personal access token in `GITHUB_TOKEN` (or `GH_TOKEN`) raises GitHub's limit 
 Exit codes: `0` clean (always, without `--strict`); `1` a `--fail-on` finding under
 `--strict`; `2` could not check: under `--strict` an entry that neither GitHub nor
 the census could answer for, and in any mode a file that cannot be read, an unknown
-option or finding, or a failed `git diff`. A missing file is an error, never "no
+option or finding, or a failed `git diff`. A missing file is an error and is never reported as "no
 links found".
 
 ## GitHub Action
@@ -209,7 +209,7 @@ gets the rest from the census and says so. For a list the size of the one above
 Status comes from the last push and uses the census's thresholds: `active` up to
 30 days, `slowing` 31 to 90, `stale` 91 to 365, `abandoned` over 365, `archived`
 whatever the date. These are a design choice of the agent-vitals census
-(`bucket()` in its `collect.py`), not a standard; this tool uses them so an entry
+(`bucket()` in its `collect.py`); this tool uses them so an entry
 reads the same in both. Licences follow the census too: `none` (no licence file)
 and `non-standard` (`NOASSERTION`) are different findings, because the second
 group did license its work.
@@ -226,7 +226,7 @@ Counted, and reduced to `owner/repo`:
 - The server pages of the GitHub MCP Registry: `github.com/mcp/github/github-mcp-server`
   is `github/github-mcp-server`.
 - In a bare URL, trailing `?`, `!`, `.`, `,`, `:`, `*`, `_` and `~` end the sentence
-  or the emphasis, not the name, as in GitHub's own rendering: `_https://github.com/o/r_`
+  or the emphasis and stay out of the name, as in GitHub's own rendering: `_https://github.com/o/r_`
   is `o/r`. A link destination (`[x](...)`, `<...>`, `href`) is taken as written.
 - The same repository under another letter case: GitHub names are
   case-insensitive, so it is one entry with all its lines.
